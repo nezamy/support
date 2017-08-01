@@ -20,29 +20,29 @@ namespace System\Support;
 class Arr
 {
 	/**
-     * Get value from nested array.
-     *
-     * @param array 	$arr
-     * @param string    $k
-     * @param string 	$default
-     *
-     * @return mixed
-     */
+	* Get value from nested array.
+	*
+	* @param array 	$arr
+	* @param string    $k
+	* @param string 	$default
+	*
+	* @return mixed
+	*/
 	public static function get(array $arr, $k, $default=null)
 	{
-        if ( isset($arr[$k]) ) return $arr[$k];
+		if ( isset($arr[$k]) ) return $arr[$k];
 
-        $nested = explode('.',$k);
+		$nested = explode('.',$k);
 		foreach ( $nested as $part ) {
-            if (isset($arr[$part])) {
-                $arr = $arr[$part];
-                continue;
-            } else {
-                $arr = $default;
-                break;
-            }
-        }
-        return $arr;
+		    if (isset($arr[$part])) {
+				$arr = $arr[$part];
+				continue;
+		    } else {
+				$arr = $default;
+				break;
+		    }
+		}
+		return $arr;
 	}
 
 	/**
@@ -133,5 +133,22 @@ class Arr
 			return self::get($json, $k, $default);
 		}
 		return $json;
+	}
+	
+	public static function replace_values($arr, $from = null, $to = "")
+	{
+		$results = [];
+		foreach ($arr as $k => $v) {
+			$toArr = (array) $v;
+			if(count($toArr) > 1 || is_array($v)){
+				$results[$k] = nullToString($toArr);
+			} else {
+				$results[$k] = $v;
+				if ($v == $from) {
+					$results[$k] = $to;
+				}
+			}
+		}
+		return $results;
 	}
 }
