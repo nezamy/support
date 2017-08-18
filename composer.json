@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "System\\": "system"
+            "System\\Support\\": ""
         }
     }
 }
