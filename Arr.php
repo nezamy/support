@@ -7,7 +7,7 @@
  * @author      Mahmoud Elnezamy <http://nezamy.com>
  * @link        http://justframework.com
  * @license     http://www.opensource.org/licenses/mit-license.php MIT
- * @version     1.0.0
+ * @version     1.0.1
  */
 namespace System\Support;
 /**
@@ -15,7 +15,7 @@ namespace System\Support;
  *
  * @package     Just Framework
  * @author      Mahmoud Elnezamy <http://nezamy.com>
- * @since       1.0.0
+ * @since       1.0.1
  */
 class Arr
 {
